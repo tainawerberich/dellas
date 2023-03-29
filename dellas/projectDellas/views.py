@@ -9,10 +9,8 @@ def login_view(request):
         password = request.POST['password']
         user = authenticate(email=email, password=password)
         if user is not None:
-            # o usuário foi autenticado com sucesso
             return render(request, 'sucesso', {'usuario': user})
         else:
-            # as credenciais são inválidas
             return render(request, 'erro')
     else:
         return render(request, 'erro')
